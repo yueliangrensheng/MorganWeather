@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "摩根天气",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "permission" : {
+    "scope.userLocation" : {
+      "desc" : "使用定位以获取当前位置天气信息"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

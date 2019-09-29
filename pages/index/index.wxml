@@ -1,0 +1,97 @@
+<!--index.wxml-->
+<view class="container {{isIphoneX ? 'iphonex-padding' : ''}}" catchtap="menuHide">
+  <!-- 主页面的背景 -->
+  <image class='bcg' wx:if='{{bcgImg}}' src='{{bcgImg}}' mode='aspectFill'></image>
+  <view class='bcg' wx:if='{{!bcgImg}}' style='background: {{bcgColor}}'></view>
+
+  <!-- 内容 -->
+  <view class='content' wx-if='{{!bcgImgAreaShow}}' style='margin-top:60px'>
+    <!-- 头像 和 昵称 -->
+    <view class="avatarInfo" catchtap='showBcgImgArea'>
+      <!-- open-data : 展示微信的开放数据 -->
+      <!-- 用户头像 -->
+      <open-data class='avatar' type='userAvatarUrl'></open-data>
+      <!-- 用户昵称 -->
+      <open-data class='name' type='userNickName'></open-data>
+      <!-- <image class='downArrow' src='/img/down.png'></image> -->
+    </view>
+
+    <view class='info'>
+      <!-- 定位信息 更新时间 -->
+      <view class="city">
+        <view class="name" bindtap="toCityChoose">
+          <image class='icon' wx-if='{{located}}' src="/img/location.png"></image>
+          <view class="val">{{weatherDatas.basic.location || '定位中'}}</view>
+          <!-- <image class="down" src="/img/down.png"></image> -->
+        </view>
+        <text class="time" wx-if='{{weatherDatas.updateTimeFormat}}'>{{weatherDatas.updateTimeFormat}}更新</text>
+      </view>
+      <!-- 每日提醒tip -->
+      <view class="message">{{message}}</view>
+      <!-- 温度 -->
+      <view class="tempContainer">
+        <view class="temp" decode='true'>{{weatherDatas.now.tmp || '--'}}
+        </view>
+        <text style='font-size:50rpx;position:relative;top:-20px;'>°C</text>
+        <view class="weatherCond">
+          <!-- 天气情况 -->
+          <view class="weather">{{weatherDatas.now.cond_txt || '--'}}</view>
+          <image class="weatherIcon" mode="aspectFit" wx-if="{{weatherDatas.now.cond_code}}" src="{{weatherIconUrl}}{{weatherDatas.now.cond_code}}.png"></image>
+        </view>
+      </view>
+
+      <!-- 风向和湿度 -->
+      <view class="windContainer">
+        <text class="wind">{{weatherDatas.now.wind_dir || ''}}  {{weatherDatas.now.wind_sc || ''}}级</text>
+        <text class="humidity">湿度{{weatherDatas.now.hum || ''}}%</text>
+      </view>
+
+      <!-- 能见度 -->
+      <view class="pm">
+        <text>能见度 {{weatherDatas.now.vis}}公里</text>
+      </view>
+      <!-- 3天预报  -->
+      <view class="moreWeather {{(weatherDatas.daily_forecast > 4) ? 'more' : 'less'}}" wx-if="{{weatherDatas.daily_forecast}}">
+        <view class="item" wx:for="{{weatherDatas.daily_forecast}}" wx:key="{{index}}">
+          <text class="date">{{item.date}}</text>
+          <text class="tmp">{{item.tmp_max}}~{{item.tmp_min}}°C</text>
+          <view class="itemWeatherCond">
+            <text>{{item.cond_txt_d}}</text>
+            <image mode="widthFix" src="{{weatherIconUrl}}{{item.cond_code_d}}.png"></image>
+          </view>
+          <view class="itemWind">{{item.wind_dir}}{{item.wind_sc}}级</view>
+        </view>
+      </view>
+
+      <!-- 天气情况 -->
+      <view class="details">
+        <view class="detail" wx:for="{{detailsDic.key}}" wx:key="{{index}}">
+          <view>{{detailsDic.val[item]}}</view>
+          <view>{{weatherDatas.now[item]}}</view>
+        </view>
+      </view>
+
+      <!-- 生活指数 -->
+      <text wx:if="{{weatherDatas.lifestyle}}" style="font-size:30rpx;padding-left:20rpx;">生活指数</text>
+      <view class="lifestyles">
+        <view class="lifestyle" wx:for="{{weatherDatas.lifestyle}}" wx:key="{{index}}" bindtap="lifestyle" data-lifestyle='{{item}}'>
+          <image mode="widthFix" src="/img/{{item.type}}.png"></image>
+          <view>{{item.brf}}</view>
+          <view class="dfont">{{lifestyleDic.val[item.type]}}</view>
+        </view>
+      </view>
+
+      <!--  -->
+    </view>
+  </view>
+
+  <!-- 定位权限拒绝 dialog -->
+  <!-- catchtouchmove="preventTouchMove" 目的是 阻止背景层滑动 -->
+  <view catchtouchmove="preventTouchMove" style="{{dialogShow?'':'display:none'}}">
+    <!-- dialog的 mask 蒙层显示与否；mask-closable蒙层点击是否可以取消dialog -->
+    <dialog title="{{dialogTitle}}" show="{{dialogShow}}" catchbuttontap="tapDialogButton" buttons="{{buttons}}" mask-closable='{{maskclosable}}' mask='{{mask}}'>
+      <view>{{dialogContent}}</view>
+    </dialog>
+  </view>
+
+</view>
