@@ -1,13 +1,16 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/citychoose/citychoose",
+    "pages/lifestyle/lifestyle"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "摩根天气",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": false,
+    "backgroundColor": "##2d2225"
   },
   "permission" : {
     "scope.userLocation" : {

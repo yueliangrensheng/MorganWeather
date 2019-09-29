@@ -1,2 +1,6 @@
 <!--pages/lifestyle/lifestyle.wxml-->
-<text>生活指数详情</text>
+
+
+<view class="container {{isIphoneX ? 'iphonex-padding' : ''}}">
+<text>{{lifestyleDatas.txt}}</text>
+</view>

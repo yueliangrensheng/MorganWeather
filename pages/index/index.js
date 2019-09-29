@@ -215,16 +215,14 @@ Page({
 
   //生活指数 Item 
   lifestyle: function(event) {
-    // var datas = event.currentTarget.dataset.lifestyle
-    // console.log(datas)
-    // // datas = JSON.stringify(datas)
-    // // console.log(datas)
-    // // 页面跳转
-    // wx.navigateTo({
-    //   url: '/pages/lifestyle/lifestyle?lifestyle=' + datas,
-    //   // url: `/pages/lifestyle/lifestyle?lifestyle=${datas}`,
-    // // })
+    var datas = event.currentTarget.dataset.lifestyle
+    datas = JSON.stringify(datas)
+    // 页面跳转
+    wx.navigateTo({
+      url: '/pages/lifestyle/lifestyle?lifestyle=' + datas,
+      // url: `/pages/lifestyle/lifestyle?lifestyle=${datas}`,
     // })
+    })
   },
 
   //选择城市

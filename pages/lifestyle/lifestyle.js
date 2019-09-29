@@ -5,15 +5,18 @@ Page({
    * Page initial data
    */
   data: {
-
+    lifestyleDatas:{},
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    console.log(options)
     console.log(JSON.parse(options.lifestyle))
+    this.setData({
+      lifestyleDatas: JSON.parse(options.lifestyle)
+    })
+    
   },
 
   /**
