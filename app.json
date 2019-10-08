@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/citychoose/citychoose",
     "pages/lifestyle/lifestyle"
   ],
   "window": {
