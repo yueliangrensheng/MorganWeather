@@ -231,6 +231,7 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/citychoose/citychoose',
     // })
+    return;
   },
 
   //菜单隐藏
@@ -240,6 +241,11 @@ Page({
 
   //dialog阻止事件冒泡
   preventTouchMove: function(e) {
+    return;
+  },
+
+  //个人信息页面
+  showInfo : function(){
     return;
   }
 

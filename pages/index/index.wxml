@@ -7,7 +7,7 @@
   <!-- 内容 -->
   <view class='content' wx-if='{{!bcgImgAreaShow}}' style='margin-top:60px'>
     <!-- 头像 和 昵称 -->
-    <view class="avatarInfo" catchtap='showBcgImgArea'>
+    <view class="avatarInfo" catchtap='showInfo'>
       <!-- open-data : 展示微信的开放数据 -->
       <!-- 用户头像 -->
       <open-data class='avatar' type='userAvatarUrl'></open-data>
