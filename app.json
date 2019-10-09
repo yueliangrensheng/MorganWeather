@@ -9,7 +9,7 @@
     "navigationBarTitleText": "摩根天气",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": false,
-    "backgroundColor": "##2d2225"
+    "backgroundColor": "#2d2225"
   },
   "permission" : {
     "scope.userLocation" : {

@@ -2,6 +2,8 @@
   "navigationBarTitleText": "摩根天气",
   "disableScroll": false,
   "enablePullDownRefresh":true,
+  "backgroundColorTop": "#ededed",
+  "backgroundColorBottom": "#2d2225",
   "usingComponents": {
     "dialog": "../../components/dialog/dialog"
   }

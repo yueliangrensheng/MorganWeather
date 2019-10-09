@@ -10,9 +10,13 @@ page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 100vh;
   color: #fff;
+  background: #2d2225;
   font-size: 30rpx;
-  overflow: scroll;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .bcg {

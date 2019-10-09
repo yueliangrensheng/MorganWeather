@@ -2,7 +2,7 @@
 <view class="container {{isIphoneX ? 'iphonex-padding' : ''}}" catchtap="menuHide">
   <!-- 主页面的背景 -->
   <image class='bcg' wx:if='{{bcgImg}}' src='{{bcgImg}}' mode='aspectFill'></image>
-  <view class='bcg' wx:if='{{!bcgImg}}' style='background: {{bcgColor}}'></view>
+  <!-- <view class='bcg' wx:if='{{!bcgImg}}' style='background: {{bcgColor}}'></view> -->
 
   <!-- 内容 -->
   <view class='content' wx-if='{{!bcgImgAreaShow}}' style='margin-top:60px'>
