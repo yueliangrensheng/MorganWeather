@@ -1,6 +1,10 @@
 <!--pages/lifestyle/lifestyle.wxml-->
-
-
 <view class="container {{isIphoneX ? 'iphonex-padding' : ''}}">
-<text>{{lifestyleDatas.txt}}</text>
+
+  <view class="content">
+    <view class='lifestyle'>{{lifestyleDic.val[lifestyleDatas.type]}}：{{lifestyleDatas.brf}}</view>
+
+    <text class="lifestyle_txt">天气提醒：{{lifestyleDatas.txt}}</text>
+  </view>
+
 </view>

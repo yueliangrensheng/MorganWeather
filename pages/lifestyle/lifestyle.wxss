@@ -2,8 +2,17 @@
 .container {
   display: flex;
   flex-direction: column;
+  background: #2d2225;
   min-height: 100vh;
   color: #fff;
   font-size: 30rpx;
   overflow: scroll;
+}
+
+.content {
+  padding: 30rpx;
+}
+
+.lifestyle {
+  margin-bottom: 20rpx;
 }

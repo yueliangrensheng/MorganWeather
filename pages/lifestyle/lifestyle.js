@@ -6,15 +6,35 @@ Page({
    */
   data: {
     lifestyleDatas:{},
+
+    lifestyleDic: {
+      key: ['comf', 'drsg', 'cw', 'flu', 'sport', 'trav', 'uv', 'air',],
+      val: {
+        comf: "舒适度指数",
+        drsg: '穿衣指数',
+        cw: '洗车指数',
+        flu: '感冒指数',
+        sport: '运动指数',
+        trav: '旅游指数',
+        uv: '紫外线指数',
+        air: '空气污染扩散',
+      }
+    },
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    
     console.log(JSON.parse(options.lifestyle))
+    var dataJsons = JSON.parse(options.lifestyle)
     this.setData({
-      lifestyleDatas: JSON.parse(options.lifestyle)
+      lifestyleDatas: dataJsons
+    })
+
+    wx.setNavigationBarTitle({
+      title: this.data.lifestyleDic.val[dataJsons.type],
     })
     
   },
