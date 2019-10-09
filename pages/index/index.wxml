@@ -1,13 +1,13 @@
 <!--index.wxml-->
-<view class="container {{isIphoneX ? 'iphonex-padding' : ''}}" catchtap="menuHide">
+<view class="container {{isIphoneX ? 'iphonex-padding' : ''}}">
   <!-- 主页面的背景 -->
-  <image class='bcg' wx:if='{{bcgImg}}' src='{{bcgImg}}' mode='aspectFill'></image>
+  <!-- <image class='bcg' wx:if='{{bcgImg}}' src='{{bcgImg}}' mode='aspectFill'></image> -->
   <!-- <view class='bcg' wx:if='{{!bcgImg}}' style='background: {{bcgColor}}'></view> -->
 
   <!-- 内容 -->
   <view class='content' wx-if='{{!bcgImgAreaShow}}' style='margin-top:60px'>
     <!-- 头像 和 昵称 -->
-    <view class="avatarInfo" catchtap='showBcgImgArea'>
+    <view class="avatarInfo" catchtap='showInfo'>
       <!-- open-data : 展示微信的开放数据 -->
       <!-- 用户头像 -->
       <open-data class='avatar' type='userAvatarUrl'></open-data>
@@ -22,12 +22,12 @@
         <view class="name" bindtap="toCityChoose">
           <image class='icon' wx-if='{{located}}' src="/img/location.png"></image>
           <view class="val">{{weatherDatas.basic.location || '定位中'}}</view>
-          <!-- <image class="down" src="/img/down.png"></image> -->
+          <image class="down" src="/img/down.png"></image>
         </view>
         <text class="time" wx-if='{{weatherDatas.updateTimeFormat}}'>{{weatherDatas.updateTimeFormat}}更新</text>
       </view>
       <!-- 每日提醒tip -->
-      <view class="message">{{message}}</view>
+      <!-- <view class="message">{{message}}</view> -->
       <!-- 温度 -->
       <view class="tempContainer">
         <view class="temp" decode='true'>{{weatherDatas.now.tmp || '--'}}
@@ -48,7 +48,7 @@
 
       <!-- 能见度 -->
       <view class="pm">
-        <text>能见度 {{weatherDatas.now.vis}}公里</text>
+        <!-- <text>能见度 {{weatherDatas.now.vis}}公里</text> -->
       </view>
       <!-- 3天预报  -->
       <view class="moreWeather {{(weatherDatas.daily_forecast > 4) ? 'more' : 'less'}}" wx-if="{{weatherDatas.daily_forecast}}">

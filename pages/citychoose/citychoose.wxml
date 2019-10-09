@@ -1,0 +1,10 @@
+<!--pages/citychoose/citychoose.wxml-->
+<view class="container {{isIphoneX ? 'iphonex-padding' : ''}}">
+
+
+  <!-- 城市列表 -->
+  <view class="citylist">
+    城市猎人
+  </view>
+
+</view>

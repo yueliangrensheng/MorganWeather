@@ -9,13 +9,13 @@ const key = globalData.weatherKey
 Page({
   data: {
     //主页面背景图
-    bcgImg: '',
+    //bcgImg: '',
     //默认背景颜色
-    bcgColor: '#2d2225',
+    //bcgColor: '#2d2225',
     //更换背景图标记
     bcgImgAreaShow: false,
     //提示信息
-    message: '天天好心情 天天好天气',
+    //message: '天天好心情 天天好天气',
     //城市天气数据
     weatherDatas: {},
     //定位城市的图标标记
@@ -149,6 +149,9 @@ Page({
           //设置界面返回 -- 不使用 定位权限
           //这里默认返回北京天气信息
           that.getWeather('beijing')
+          that.setData({
+            located : false
+          })
         }
       }
     })
@@ -220,26 +223,24 @@ Page({
     // 页面跳转
     wx.navigateTo({
       url: '/pages/lifestyle/lifestyle?lifestyle=' + datas,
-      // url: `/pages/lifestyle/lifestyle?lifestyle=${datas}`,
-    // })
     })
   },
 
   //选择城市
   toCityChoose: function() {
-    // 页面跳转
-    // wx.navigateTo({
-    //   url: '/pages/citychoose/citychoose',
-    // })
-  },
-
-  //菜单隐藏
-  menuHide: function(event) {
-    // console.log(event)
+    //页面跳转
+    wx.navigateTo({
+      url: '/pages/citychoose/citychoose',
+    })
   },
 
   //dialog阻止事件冒泡
   preventTouchMove: function(e) {
+    return;
+  },
+
+  //展示个人信息
+  showInfo : function(){
     return;
   }
 
