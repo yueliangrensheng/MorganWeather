@@ -5,9 +5,9 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#2d2225",
     "navigationBarTitleText": "摩根天气",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": false,
     "backgroundColor": "##2d2225"
   },
