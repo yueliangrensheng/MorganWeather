@@ -2,9 +2,30 @@
 <view class="container {{isIphoneX ? 'iphonex-padding' : ''}}">
 
 
-  <!-- 城市列表 -->
+  <!-- 热门城市 -->
+  <view class="hotcityContainer">
+    <view class="title">热门城市</view>
+    <view class="hotcity">
+      <!-- 定位 -->
+      <view class="cell {{!hotcitySelection ? 'active' : ''}}" catchtap="selectHotCity">
+        <image class='location' src="../../img/location.png"></image>
+        <text>定位</text>
+      </view>
+      <!-- 具体的热门城市 -->
+      <view class="cell" hover-class="active" wx:for="{{hotCityDatas}}" wx:key="{{index}}" catchtap="selectHotCity" data-cityName="{{item}}">{{item}}</view>
+    </view>
+  </view>
+
+
+  <!-- 所有的城市列表 -->
   <view class="citylist">
     城市猎人
+
+    <!-- { "letter": "B", "name": "北京市" } -->
+    <view wx:for="{{allCityDatas}}" wx:key="{{index}}" >
+    <view class="letter">{{index}}</view>
+    <view class="citycell" hover-class="cityhover" wx:key="{{index}}" wx:for="{{item}}" catchtap="selectHotCity" data-cityName="{{item.name}}" >{{item.name}}</view>
+    </view>
   </view>
 
 </view>

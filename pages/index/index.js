@@ -22,6 +22,8 @@ Page({
     located: true,
     //天气Icon Url
     weatherIconUrl: globalData.weatherIconUrl,
+    // 当前所展示的城市
+    currentLocation: '',
 
     detailsDic: {
       key: ['tmp', 'fl', 'hum', 'pcpn', 'wind_dir', 'wind_sc', 'wind_spd', 'vis', 'cloud', 'pres', '', ],
@@ -103,6 +105,7 @@ Page({
   //获取天气数据
   getWeatherDatas: function() {
     //获取天气数据的前提是先要有定位信息
+    console.log("this.data.located = " + this.data.located)
     if (this.data.located) {
       this.init({})
     }
@@ -150,7 +153,7 @@ Page({
           //这里默认返回北京天气信息
           that.getWeather('beijing')
           that.setData({
-            located : false
+            located: false
           })
         }
       }
@@ -162,7 +165,14 @@ Page({
   },
 
   //根据location获取天气数据
-  getWeather: function(location) {
+  getWeather: function(location, callback) {
+    //城市选择界面中的回调不为kong
+    if (callback){
+      this.setData({
+        located : false
+      })
+    }
+
     var weatherUrl = `${globalData.requestUrl.weather}`
     // console.log("天气url= "+weatherUrl)
     wx.request({
@@ -179,6 +189,7 @@ Page({
 
           if (data.status == 'ok') {
             this.success(data, location)
+            callback && callback()
           } else {
             wx.showToast({
               title: '查询失败',
@@ -240,7 +251,7 @@ Page({
   },
 
   //展示个人信息
-  showInfo : function(){
+  showInfo: function() {
     return;
   }
 
